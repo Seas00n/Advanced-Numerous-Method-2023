@@ -93,16 +93,10 @@ class arrowline():
     '''
     def __init__(self,ax,x,y,cosys='rect',arrow_size=1,style='to',arrow_angle=40,d_frac=1,color='#1f77b4',arrow_style='full',interval=50,**kw):
         self.arrows=[]
-        arrowline.set_ax(ax) #对当前ax进行初始化设置，增加一些属性，对axes实例的方法进行一些增添修改
+        # arrowline.set_ax(ax) #对当前ax进行初始化设置，增加一些属性，对axes实例的方法进行一些增添修改
         if cosys=='rect' or cosys=='polar':
-            print(x)
-            print(y)
-            print(color)
             self.handle=ax.plot(x,y,color=color,**kw)[0]
         elif cosys=='loglog':
-            print(x)
-            print(y)
-            print(color)
             self.handle=ax.loglog(x,y,color=color,**kw)[0]
             
         x,y,l=list(x),list(y),len(x)
@@ -132,8 +126,8 @@ class arrowline():
                 i+=interval
         else:
             raise ValueError('请检查style参数是否正确')
-        self.callback=ax
-        ax.arrowlines.append(self)
+        # self.callback=ax
+        # ax.arrowlines.append(self)
         
     def remove(self): #彻底移除arrowline
         self.handle.axes.arrowlines.remove(self)
